@@ -4,13 +4,20 @@ import java.time.LocalDate;
 
 import com.desafiocrud.crud.entities.Client;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+
 
 public class ClientDTO {
 	
 	private Long id;
+	
+	@NotBlank(message = "O nome não pode estar em branco")
 	private String name;
 	private String cpf;
 	private Double income;
+	
+	@PastOrPresent(message = "Não pode ser data futura")
 	private LocalDate birthDate;
 	private Integer children;
 	
